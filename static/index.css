@@ -25,4 +25,22 @@
 #textBox {
   width: 100vw;
   height: 15vh;
+  display: flex;
+  justify-content: center;
+}
+
+.menu {
+  width:30px;
+  height: 30px;
+}
+
+.logo {
+  width:30px;
+  height: 30px;
+}
+
+input[type="text"] {
+  width: 80vw;
+  height: 8vh;
+  border-radius: 10px;
 }
