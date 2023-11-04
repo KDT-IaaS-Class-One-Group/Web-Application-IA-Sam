@@ -17,6 +17,8 @@ document.addEventListener('DOMContentLoaded', () => {
       // appendChild to the main div
       mainDiv.appendChild(messageLi);
 
+      // Clear the input field after the message is sent
+      text.value = "";
     }
   })
 })
