@@ -16,21 +16,21 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname,'static', 'index.html'));
 });
 
-// function saveToJSON
-function saveToJSON(data) {
-  const jsonData = JSON.stringify(data);
+// // function saveToJSON
+// function saveToJSON(data) {
+//   const jsonData = JSON.stringify(data);
 
-  fs.writeFile('message.json', jsonData, (err) => {
-    if(err) {
-      console.error('error has occured while saving files.')
-    } else {
-      console.log('data has successfully saved.')
-    }
-  });
-}
+//   fs.writeFile('message.json', jsonData, (err) => {
+//     if(err) {
+//       console.error('error has occured while saving files.')
+//     } else {
+//       console.log('data has successfully saved.')
+//     }
+//   }); 
+// }
 
 app.post('/submit', (req, res) => {
-  const userMessage = req.body.messageText;
+  const userMessage = req.body.message;
 
   // read the existing JSON file and add data to a array
   fs.readFile('message.json', 'utf8', (err, data) => {
@@ -39,13 +39,25 @@ app.post('/submit', (req, res) => {
       return;
     }
 
-    let messages = JSON.parse(data);
+    let jsonData = JSON.parse(data);
+    let timestamp = new Date().toLocaleDateString();
 
     // add new messages to the array
-    messages.push({ message: userMessage, timestamp: new Date() });
+    jsonData.mainContent.inputRecords.push({ 
+      type: 'user', 
+      message: userMessage,
+      timestamp: timestamp
+    });
 
-    // save data to the JSON file
-    saveToJSON(messages);
+    // save updated data to the JSON file
+    fs.writeFile("message.json", JSON.stringify(jsonData, null, 2), (err) => {
+      if (err) {
+        console.error('An error has occured while saving files.')
+        return res.status(500).send('Server error')
+      } else {
+        console.log('data has successfully saved.')
+      }
+    });
   })
 
 
