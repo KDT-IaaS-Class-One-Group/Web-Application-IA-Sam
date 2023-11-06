@@ -3,7 +3,7 @@ const fs = require("fs");
 const router = express.Router();
 
 router.post('/submit', (req, res) => {
-  const userMessage = req.body.data;
+  const userMessage = req.body.message;
   console.log(userMessage)
 
   // read the existing JSON file and add data to a array
