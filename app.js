@@ -16,7 +16,19 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname,'static', 'index.html'));
 });
 
-//
+// function saveToJSON
+function saveToJSON(data) {
+  const jsonData = JSON.stringify(data);
+
+  fs.writeFile('messages.json', jsonData, (err) => {
+    if(err) {
+      console.error('error has occured while saving files.')
+    } else {
+      console.lof('data has successfully saved.')
+    }
+  });
+}
+
 app.post('/submit', (req, res) => {
   const userMessage = req.body.message;
 
