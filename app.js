@@ -16,21 +16,9 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname,'static', 'index.html'));
 });
 
-// // function saveToJSON
-// function saveToJSON(data) {
-//   const jsonData = JSON.stringify(data);
-
-//   fs.writeFile('message.json', jsonData, (err) => {
-//     if(err) {
-//       console.error('error has occured while saving files.')
-//     } else {
-//       console.log('data has successfully saved.')
-//     }
-//   }); 
-// }
-
 app.post('/submit', (req, res) => {
   const userMessage = req.body.message;
+  console.log(userMessage)
 
   // read the existing JSON file and add data to a array
   fs.readFile('message.json', 'utf8', (err, data) => {
