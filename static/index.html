@@ -15,8 +15,8 @@
     <div id="main"></div>
     <div id="textBox">
       <div></div>
-      <form id="messageForm">
-        <input type="text" id="text" placeholder="Send a message">
+      <form id="messageForm" method="POST" action="/submit"> 
+        <input type="text" id="message" name="message" placeholder="Send a message">
         <input type="submit" name="submit" id="submit" placeholder="send">
       </form>
     </div>
