@@ -20,17 +20,29 @@ app.get('/', (req, res) => {
 function saveToJSON(data) {
   const jsonData = JSON.stringify(data);
 
-  fs.writeFile('messages.json', jsonData, (err) => {
+  fs.writeFile('/messages.json', jsonData, (err) => {
     if(err) {
       console.error('error has occured while saving files.')
     } else {
-      console.lof('data has successfully saved.')
+      console.log('data has successfully saved.')
     }
   });
 }
 
 app.post('/submit', (req, res) => {
   const userMessage = req.body.message;
+
+  // read the existing JSON file and add data to a array
+  fs.readFile('/message.json', 'utf8', (data) => {
+    let messages = JSON.parse(data);
+
+    // add new messages to the array
+    messages.push({ message: userMessage, timestamp: new Date() });
+
+    // save data to the JSON file
+    saveToJSON(messages);
+  })
+
 
   res.json({ message: 'message has successfully delivered'});
 })

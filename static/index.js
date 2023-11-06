@@ -5,8 +5,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const mainDiv = document.getElementById('main');
 
   // create li tags with textcontents
-  messageForm.addEventListener("submit", (event) => {
-    event.preventDefault(); // prevent the form from restarting and actually submitting webpage 
+  messageForm.addEventListener("submit", () => {
+
 
     const messageText = message.value;
     if (messageText) {
