@@ -20,7 +20,7 @@ app.get('/', (req, res) => {
 function saveToJSON(data) {
   const jsonData = JSON.stringify(data);
 
-  fs.writeFile('/messages.json', jsonData, (err) => {
+  fs.writeFile('message.json', jsonData, (err) => {
     if(err) {
       console.error('error has occured while saving files.')
     } else {
@@ -30,10 +30,15 @@ function saveToJSON(data) {
 }
 
 app.post('/submit', (req, res) => {
-  const userMessage = req.body.message;
+  const userMessage = req.body.messageText;
 
   // read the existing JSON file and add data to a array
-  fs.readFile('/message.json', 'utf8', (data) => {
+  fs.readFile('message.json', 'utf8', (err, data) => {
+    if (err) {
+      console.error('An error has occured while loading files.')
+      return;
+    }
+
     let messages = JSON.parse(data);
 
     // add new messages to the array
