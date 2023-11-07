@@ -35,7 +35,7 @@ router.post('/submit', (req, res) => {
   })
 
 
-  res.json({ message: 'message has successfully delivered'});
+
 })
 
 module.exports = {
