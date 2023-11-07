@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // function dealing with POST request
   async function postData() {
+    const messageText = message.value;
     try {
       const response = await fetch('/submit', {
         method: 'POST',
@@ -39,7 +40,6 @@ document.addEventListener('DOMContentLoaded', () => {
       mainDiv.appendChild(messageLi);
 
       // Clear the input field after the message is sent
-      message.value = "";
     }
     
     postData(); // send POST request
