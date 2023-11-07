@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const messageLiTwo = document.createElement("li");
 
       messageLi.textContent = messageText;
-      messageLiTwo.textContent = `Sorry, I can't help with "${messageText}". `
+      messageLiTwo.textContent = `Sorry, I can't help with the "${messageText}". `
       // appendChild to the main div
       mainDiv.appendChild(messageLi);
       mainDiv.appendChild(messageLiTwo)
