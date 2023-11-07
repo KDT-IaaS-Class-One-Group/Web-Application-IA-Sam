@@ -2,6 +2,9 @@ const express = require('express');
 const bodyParser = require('body-parser')
 const path = require('path');
 const app = express();
+
+const { JsonDataSave } = require('./routes')
+
 const port = 3000; // port number
 
 // set middleware for using static files
@@ -14,6 +17,9 @@ app.use(bodyParser.json());
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname,'static', 'index.html'));
 });
+
+// import JsonDataSave from routes.js
+app.post('/submit', JsonDataSave);
 
 app.listen(port, () => {
   console.log(`http://localhost:${port}`);

@@ -1,14 +1,14 @@
 // Wait for the DOM to be ready
 document.addEventListener('DOMContentLoaded', () => {
   const messageForm = document.getElementById('messageForm');
-  const text = document.getElementById('text');
+  const message = document.getElementById('message');
   const mainDiv = document.getElementById('main');
 
   // create li tags with textcontents
-  messageForm.addEventListener("submit", (event) => {
-    event.preventDefault(); // prevent the form from restarting and actually submitting webpage 
+  messageForm.addEventListener("submit", () => {
 
-    const messageText = text.value;
+
+    const messageText = message.value;
     if (messageText) {
       // create li tag to display the message
       const messageLi = document.createElement("li");
@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
       mainDiv.appendChild(messageLi);
 
       // Clear the input field after the message is sent
-      text.value = "";
+      message.value = "";
     }
   })
 })
