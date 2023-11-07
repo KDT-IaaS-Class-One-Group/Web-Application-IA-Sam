@@ -12,10 +12,13 @@ document.addEventListener('DOMContentLoaded', () => {
     if (messageText) {
       // create li tag to display the message
       const messageLi = document.createElement("li");
-      messageLi.textContent = messageText;
+      const messageLiTwo = document.createElement("li");
 
+      messageLi.textContent = messageText;
+      messageLiTwo.textContent = `Sorry, I can't help with "${messageText}". `
       // appendChild to the main div
       mainDiv.appendChild(messageLi);
+      mainDiv.appendChild(messageLiTwo)
 
     }
   })
