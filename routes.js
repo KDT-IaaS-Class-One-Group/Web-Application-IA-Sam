@@ -6,7 +6,15 @@ router.post('/submit', (req, res) => {
   const userMessage = req.body.message;
   console.log(userMessage)
 
+  // todo 
+  // function fileReadWork () {
+  //   processError()
+  //   processInputRecords()
+  //   processWriteFile()
+  // }
+
   // read the existing JSON file and add data to a array
+
   fs.readFile('message.json', 'utf8', (err, data) => {
     if (err) {
       console.error('An error has occured while loading files.')
@@ -33,9 +41,6 @@ router.post('/submit', (req, res) => {
       }
     });
   })
-
-
-
 })
 
 module.exports = {
