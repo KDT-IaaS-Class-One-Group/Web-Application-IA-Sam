@@ -72,6 +72,11 @@ input[type="text"] {
   border-radius: 10px;
 }
 
+.container { 
+  position:absolute;
+  height: 95%;
+}
+
 .sidebar {
   width: 0;
   height: 100%;
