@@ -4,6 +4,7 @@ const router = express.Router();
 
 //modules
 const processError = require('./module/processError')
+const processInputRecords = require('./module/processInputRecords')
 
 router.post('/submit', (req, res) => {
   const userMessage = req.body.message;
@@ -19,8 +20,8 @@ router.post('/submit', (req, res) => {
   // read the existing JSON file and add data to a array
 
   fs.readFile('message.json', 'utf8', (err, data) => {
-    processError
-
+    processError()
+    
     let jsonData = JSON.parse(data);
     let timestamp = new Date().toLocaleTimeString();
 
