@@ -3,6 +3,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const messageForm = document.getElementById('messageForm');
   const message = document.getElementById('message');
   const mainDiv = document.getElementById('main');
+  const hamburgerButton = document.querySelector('.button');
+  const sidebar = document.querySelector('.sidebar');
 
   // create li tags with textcontents
   messageForm.addEventListener("submit", () => {
@@ -20,6 +22,13 @@ document.addEventListener('DOMContentLoaded', () => {
       mainDiv.appendChild(messageLi);
       mainDiv.appendChild(messageLiTwo)
 
+    }
+  })
+  hamburgerButton.addEventListener('click', () => {
+    if (sidebar.style.width === '100px') {
+      sidebar.style.width = '0';
+    } else { 
+      sidebar.style.width = '100px';
     }
   })
 })
