@@ -72,6 +72,14 @@ input[type="text"] {
   border-radius: 10px;
 }
 
+.sidebar {
+  width: 0;
+  height: 100%;
+  background-color: #333;
+  overflow-x: hidden;
+  transition: 0.5s;
+}
+
 .button {
   font-size: 30px;
   cursor: pointer;
