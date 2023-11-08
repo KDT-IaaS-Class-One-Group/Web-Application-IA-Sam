@@ -1,4 +1,4 @@
-module.exports = (a, b) => {
+module.exports = () => {
   console.log (a + b);
 }
 

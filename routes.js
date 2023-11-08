@@ -2,6 +2,9 @@ const express = require("express");
 const fs = require("fs");
 const router = express.Router();
 
+//modules
+const processError = require('./module/processError')
+
 router.post('/submit', (req, res) => {
   const userMessage = req.body.message;
   console.log(userMessage)
@@ -16,10 +19,7 @@ router.post('/submit', (req, res) => {
   // read the existing JSON file and add data to a array
 
   fs.readFile('message.json', 'utf8', (err, data) => {
-    if (err) {
-      console.error('An error has occured while loading files.')
-      return;
-    }
+    processError
 
     let jsonData = JSON.parse(data);
     let timestamp = new Date().toLocaleTimeString();
