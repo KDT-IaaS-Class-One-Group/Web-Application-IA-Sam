@@ -33,6 +33,26 @@
   justify-content: center;
 }
 
+#main > li:nth-child(even) {
+  width: 70vw;
+  height: 5vh;
+  background-color: lightskyblue;
+  margin: 5px;
+  padding: 10px;
+  border-radius: 10px;
+  display: block;
+}
+
+#main > li:nth-child(odd) {
+  width: 70vw;
+  height: 5vh;
+  background-color: white;
+  margin: 5px;
+  padding: 10px;
+  border-radius: 10px;
+  display: block;
+}
+
 .menu {
   width:30px;
   height: 30px;
@@ -47,24 +67,4 @@ input[type="text"] {
   width: 80vw;
   height: 8vh;
   border-radius: 10px;
-}
-
-li:nth-child(even) {
-  width: 70vw;
-  height: 5vh;
-  background-color: lightskyblue;
-  margin: 5px;
-  padding: 10px;
-  border-radius: 10px;
-  display: block;
-}
-
-li:nth-child(odd) {
-  width: 70vw;
-  height: 5vh;
-  background-color: white;
-  margin: 5px;
-  padding: 10px;
-  border-radius: 10px;
-  display: block;
 }
